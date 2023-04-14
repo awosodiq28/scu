@@ -31,7 +31,6 @@ const ContactForm = () => {
 						<MdLocationOn />
 					</span>
 					<h4>Location</h4>
-					<p>Lange Vorststraat 14b, 4471 JP Goes, </p>
 				</div>
 			</div>
 			<p>Write us a message</p>
