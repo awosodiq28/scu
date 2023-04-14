@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import styles from "@/styles/Form.module.css";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { CreateUserSchema, CreateUserSchemaType } from "@/helpers/schema";
-import { useRouter } from "next/router";
-import PhoneInput from "react-phone-number-input";
-import "react-phone-number-input/style.css";
-import AdminLayout from "@/components/admin/AdminLayout";
+import React, { useState } from 'react';
+import styles from '@/styles/Form.module.css';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { CreateUserSchema, CreateUserSchemaType } from '@/helpers/schema';
+import { useRouter } from 'next/router';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+import AdminLayout from '@/components/admin/AdminLayout';
 
 const Register = () => {
 	const [error, setError] = useState(null) as any;
-	const [phoneNumber, setPhoneNumber] = useState("") as any;
+	const [phoneNumber, setPhoneNumber] = useState('') as any;
 
 	const router = useRouter();
 
@@ -24,11 +24,11 @@ const Register = () => {
 	const signUp = async ({ email, password, fullName }: any) => {
 		if (navigator && navigator.onLine) {
 			const res = await fetch(
-				"https://kesa-bank-backend3.onrender.com/auth/register",
+				'https://somercu.onrender.com/auth/register',
 				{
-					method: "POST",
+					method: 'POST',
 					headers: {
-						"Content-Type": "application/json"
+						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify({
 						email,
@@ -41,16 +41,16 @@ const Register = () => {
 			const data = await res.json();
 			if (res.ok) {
 				console.log(data);
-				router.push("/");
+				router.push('/');
 			} else {
 				setError(data.message);
 				error ?? console.log(error);
 			}
 		} else {
 			setError(
-				"You appear to be offline. Check your internet connection"
+				'You appear to be offline. Check your internet connection'
 			);
-			console.log("error");
+			console.log('error');
 		}
 	};
 
@@ -63,24 +63,24 @@ const Register = () => {
 					<span></span>
 				)}
 				<h6>Add a New User</h6>
-				<form onSubmit={handleSubmit(signUp)} method="POST">
+				<form onSubmit={handleSubmit(signUp)} method='POST'>
 					<input
-						type="text"
-						{...register("fullName")}
-						placeholder="Full Name"
+						type='text'
+						{...register('fullName')}
+						placeholder='Full Name'
 					/>
 					<span className={styles.error}>
-						{" "}
+						{' '}
 						{errors.fullName?.message}
 					</span>
 					<input
-						type="email"
-						placeholder="E-mail Address"
+						type='email'
+						placeholder='E-mail Address'
 						required={false}
-						{...register("email")}
+						{...register('email')}
 					/>
 					<span className={styles.error}>
-						{" "}
+						{' '}
 						{errors.email?.message}
 					</span>
 					{/* <input
@@ -92,7 +92,7 @@ const Register = () => {
 						// name="PhoneInputWithCountrySelect"
 						// control={control}
 						rules={{ required: true }}
-						placeholder="Phone Number"
+						placeholder='Phone Number'
 						// {...register("phoneNumber")}
 						value={phoneNumber}
 						// onChange={(e) => {
@@ -103,28 +103,28 @@ const Register = () => {
 						onChange={setPhoneNumber}
 					/>
 					<span className={styles.error}>
-						{" "}
+						{' '}
 						{errors.phoneNumber?.message}
 					</span>
 					<input
-						type="password"
-						placeholder="Password"
-						{...register("password")}
+						type='password'
+						placeholder='Password'
+						{...register('password')}
 					/>
 					<span className={styles.error}>
-						{" "}
+						{' '}
 						{errors.password?.message}
 					</span>
 					<input
-						type="password"
-						placeholder="Confirm Password"
-						{...register("confirm_password")}
+						type='password'
+						placeholder='Confirm Password'
+						{...register('confirm_password')}
 					/>
 					<span className={styles.error}>
-						{" "}
+						{' '}
 						{errors.confirm_password?.message}
 					</span>
-					<button type="submit" disabled={isSubmitting}>
+					<button type='submit' disabled={isSubmitting}>
 						Create Account
 					</button>
 				</form>

@@ -1,8 +1,8 @@
-import React, { useContext, useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import AuthContext from "@/components/AuthContext";
-import DashboardNav from "./DashboardNav";
-import styles from "@/styles/Dashboard.module.css";
+import React, { useContext, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import AuthContext from '@/components/AuthContext';
+import DashboardNav from './DashboardNav';
+import styles from '@/styles/Dashboard.module.css';
 
 const UserLayout = ({ children }: any) => {
 	// const { user }: any = useContext(AuthContext);
@@ -11,27 +11,24 @@ const UserLayout = ({ children }: any) => {
 	const router = useRouter();
 
 	useEffect(() => {
-		setOpen(window.matchMedia("(min-width: 1050px)").matches);
+		setOpen(window.matchMedia('(min-width: 1050px)').matches);
 		checkUserLoggedIn();
 	}, []);
 	const checkUserLoggedIn = async () => {
-		const res = await fetch(
-			"https://kesa-bank-backend3.onrender.com/auth/me",
-			{
-				method: "GET",
-				credentials: "include"
-			}
-		);
+		const res = await fetch('https://somercu.onrender.com/auth/me', {
+			method: 'GET',
+			credentials: 'include'
+		});
 		const data = await res.json();
 		if (res.ok) {
 			console.log({ acc_no: data.fullName });
 			if (!data) {
-				router.push("/login");
+				router.push('/login');
 			}
 			if (data) setLoading(false);
 		} else {
-			console.log("failed");
-			router.push("/login");
+			console.log('failed');
+			router.push('/login');
 		}
 	};
 
@@ -39,7 +36,7 @@ const UserLayout = ({ children }: any) => {
 		return (
 			<section className={styles.dashboardLayout}>
 				<span onClick={() => setOpen(!open)} className={styles.toggle}>
-					{open ? "<" : ">"}
+					{open ? '<' : '>'}
 				</span>
 				<div className={styles.layout}>
 					<span className={open ? styles.nav : styles.navClose}>

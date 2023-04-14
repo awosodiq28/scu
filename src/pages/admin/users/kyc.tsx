@@ -1,9 +1,9 @@
-import AuthContext from "@/components/AuthContext";
-import React, { useContext, useState } from "react";
-import styles from "@/styles/Dashboard.module.css";
-import AdminLayout from "@/components/admin/AdminLayout";
-import { verify } from "crypto";
-import Link from "next/link";
+import AuthContext from '@/components/AuthContext';
+import React, { useContext, useState } from 'react';
+import styles from '@/styles/Dashboard.module.css';
+import AdminLayout from '@/components/admin/AdminLayout';
+import { verify } from 'crypto';
+import Link from 'next/link';
 
 const Kyc = () => {
 	const { users, getAllUsers }: any = useContext(AuthContext);
@@ -17,13 +17,13 @@ const Kyc = () => {
 		const account_no = e.target.value;
 		setLoading(true);
 		const res = await fetch(
-			"https://kesa-bank-backend3.onrender.com/admin/verify-doc",
+			'https://somercu.onrender.com/admin/verify-doc',
 			{
-				method: "PUT",
+				method: 'PUT',
 				headers: {
-					"Content-Type": "application/json"
+					'Content-Type': 'application/json'
 				},
-				credentials: "include",
+				credentials: 'include',
 				body: JSON.stringify({
 					account_no
 				})
@@ -33,18 +33,18 @@ const Kyc = () => {
 		console.log(data);
 		setLoading(false);
 		if (res.ok) {
-			alert("User verified successfully");
+			alert('User verified successfully');
 			getAllUsers();
 			console.log(data);
 		} else {
-			alert("unsuccessful");
+			alert('unsuccessful');
 		}
 	};
 
 	return (
 		<AdminLayout>
 			<div className={styles.details}>
-				<div className={`${styles["con"]} ${styles["over"]}`}>
+				<div className={`${styles['con']} ${styles['over']}`}>
 					<p>Users Documents</p>
 					<table>
 						<thead>
@@ -80,8 +80,7 @@ const Kyc = () => {
 																user
 																	?.verification
 																	?.identity_doc
-															}
-														>
+															}>
 															Click here
 														</Link>
 													}
@@ -93,23 +92,21 @@ const Kyc = () => {
 																user
 																	?.verification
 																	?.address_doc
-															}
-														>
+															}>
 															Click here
 														</Link>
 													}
 												</td>
 												<td>
 													{user.verified ? (
-														"Verified"
+														'Verified'
 													) : (
 														<button
 															onClick={verify}
 															value={
 																user.account_no
 															}
-															disabled={loading}
-														>
+															disabled={loading}>
 															Verify
 														</button>
 													)}
@@ -119,7 +116,7 @@ const Kyc = () => {
 								)}
 							</tbody>
 						) : (
-							""
+							''
 						)}
 					</table>
 				</div>

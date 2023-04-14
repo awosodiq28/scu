@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
-import AuthContext from "../AuthContext";
-import AdminDashboardNav from "./AdminDashboardNav";
-import styles from "@/styles/Dashboard.module.css";
-import { useRouter } from "next/router";
+import React, { useContext, useEffect, useState } from 'react';
+import AuthContext from '../AuthContext';
+import AdminDashboardNav from './AdminDashboardNav';
+import styles from '@/styles/Dashboard.module.css';
+import { useRouter } from 'next/router';
 
 const AdminLayout = ({ children }: any) => {
 	const { getAllUsers }: any = useContext(AuthContext);
@@ -11,31 +11,28 @@ const AdminLayout = ({ children }: any) => {
 	const router = useRouter();
 
 	useEffect(() => {
-		setOpen(window.matchMedia("(min-width: 1050px)").matches);
+		setOpen(window.matchMedia('(min-width: 1050px)').matches);
 		checkUserLoggedIn();
 		getAllUsers();
 	}, []);
 	const checkUserLoggedIn = async () => {
-		const res = await fetch(
-			"https://kesa-bank-backend3.onrender.com/auth/me",
-			{
-				method: "GET",
-				credentials: "include"
-			}
-		);
+		const res = await fetch('https://somercu.onrender.com/auth/me', {
+			method: 'GET',
+			credentials: 'include'
+		});
 		const data = await res.json();
 		if (res.ok) {
 			console.log({ acc_no: data.fullName });
 			if (!data?.isAdmin) {
 				console.log({ admin: data });
-				router.push("/login");
+				router.push('/login');
 			}
 			if (data?.isAdmin) {
 				setLoading(false);
 			}
 		} else {
-			console.log("failed");
-			router.push("/login");
+			console.log('failed');
+			router.push('/login');
 		}
 	};
 
@@ -43,7 +40,7 @@ const AdminLayout = ({ children }: any) => {
 		return (
 			<section className={styles.dashboardLayout}>
 				<span onClick={() => setOpen(!open)} className={styles.toggle}>
-					{open ? "<" : ">"}
+					{open ? '<' : '>'}
 				</span>
 				<div className={styles.layout}>
 					<span className={open ? styles.nav : styles.navClose}>
