@@ -11,10 +11,11 @@ const Footer = () => {
 				<span className={styles.sect1}>
 					<h2 className='logo'>SCU</h2>
 					<p>
-						Sommer Credit Union is a micro banking system. We offer
-						different types of financial services to our customers
-						all over the world such as Loan, Wire transfer, Long
-						term deposit, savings and some other related services.
+						somerset Credit Union is a micro banking system. We
+						offer different types of financial services to our
+						customers all over the world such as Loan, Wire
+						transfer, Long term deposit, savings and some other
+						related services.
 					</p>
 				</span>
 				<span className={styles.sect}>
@@ -65,7 +66,7 @@ const Footer = () => {
 				</span>
 			</div>
 			<p>
-				Copyright © 2022 <strong>Sommer Credit Union</strong> - All
+				Copyright © 2022 <strong>somerset Credit Union</strong> - All
 				Rights Reserved.
 			</p>
 		</footer>

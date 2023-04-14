@@ -12,15 +12,15 @@ const TermsAndConditions = () => {
 			</div>
 			<div>
 				<h6>Terms and Conditions</h6>
-				<p>Welcome to Sommer Credit Union!</p>
+				<p>Welcome to somerset Credit Union!</p>
 				<p>
 					These terms and conditions outline the rules and regulations
-					for the use of Sommer Credit Union&#39;s Website, located at
-					https://cadencefcu.com.
+					for the use of somerset Credit Union&#39;s Website, located
+					at https://cadencefcu.com.
 				</p>
 				<p>
 					By accessing this website we assume you accept these terms
-					and conditions. Do not continue to use Sommer Credit Union
+					and conditions. Do not continue to use somerset Credit Union
 					if you do not agree to take all of the terms and conditions
 					stated on this page.
 				</p>
@@ -46,25 +46,25 @@ const TermsAndConditions = () => {
 				</p>
 				<h6>Cookies</h6>
 				<p>
-					Unless otherwise stated, Sommer Credit Union and/or its
+					Unless otherwise stated, somerset Credit Union and/or its
 					licensors own the intellectual property rights for all
-					material on Sommer Credit Union. All intellectual property
-					rights are reserved. You may access this from Sommer Credit
-					Union for your own personal use subjected to restrictions
-					set in these terms and conditions.
+					material on somerset Credit Union. All intellectual property
+					rights are reserved. You may access this from somerset
+					Credit Union for your own personal use subjected to
+					restrictions set in these terms and conditions.
 				</p>
 				<p>You must not:</p>
 				<ul>
-					<li>Republish material from Sommer Credit Union</li>
+					<li>Republish material from somerset Credit Union</li>
 					<li>
-						Sell, rent or sub-license material from Sommer Credit
+						Sell, rent or sub-license material from somerset Credit
 						Union
 					</li>
 					<li>
-						Reproduce, duplicate or copy material from Sommer Credit
-						Union
+						Reproduce, duplicate or copy material from somerset
+						Credit Union
 					</li>
-					<li>Redistribute content from Sommer Credit Union</li>
+					<li>Redistribute content from somerset Credit Union</li>
 				</ul>
 				<p>
 					This Agreement shall begin on the date hereof. Our Terms and
@@ -74,19 +74,19 @@ const TermsAndConditions = () => {
 				<p>
 					Parts of this website offer an opportunity for users to post
 					and exchange opinions and information in certain areas of
-					the website. Sommer Credit Union does not filter, edit,
+					the website. somerset Credit Union does not filter, edit,
 					publish or review Comments prior to their presence on the
 					website. Comments do not reflect the views and opinions of
-					Sommer Credit Union,its agents and/or affiliates. Comments
+					somerset Credit Union,its agents and/or affiliates. Comments
 					reflect the views and opinions of the person who post their
 					views and opinions. To the extent permitted by applicable
-					laws, Sommer Credit Union shall not be liable for the
+					laws, somerset Credit Union shall not be liable for the
 					Comments or for any liability, damages or expenses caused
 					and/or suffered as a result of any use of and/or posting of
 					and/or appearance of the Comments on this website.
 				</p>
 				<p>
-					Sommer Credit Union reserves the right to monitor all
+					somerset Credit Union reserves the right to monitor all
 					Comments and to remove any Comments which can be considered
 					inappropriate, offensive or causes breach of these Terms and
 					Conditions.
@@ -114,8 +114,8 @@ const TermsAndConditions = () => {
 					</li>
 				</ul>
 				<p>
-					You hereby grant Sommer Credit Union a non-exclusive license
-					to use, reproduce, edit and authorize others to use,
+					You hereby grant somerset Credit Union a non-exclusive
+					license to use, reproduce, edit and authorize others to use,
 					reproduce and edit any of your Comments in any and all
 					forms, formats or media.
 				</p>
@@ -172,8 +172,8 @@ const TermsAndConditions = () => {
 					to ourselves or to our accredited businesses; (b) the
 					organization does not have any negative records with us; (c)
 					the benefit to us from the visibility of the hyperlink
-					compensates the absence of Sommer Credit Union; and (d) the
-					link is in the context of general resource information.
+					compensates the absence of somerset Credit Union; and (d)
+					the link is in the context of general resource information.
 				</p>
 				<p>
 					These organizations may link to our home page so long as the
@@ -185,7 +185,7 @@ const TermsAndConditions = () => {
 				<p>
 					If you are one of the organizations listed in paragraph 2
 					above and are interested in linking to our website, you must
-					inform us by sending an e-mail to Sommer Credit Union.
+					inform us by sending an e-mail to somerset Credit Union.
 					Please include your name, your organization name, contact
 					information as well as the URL of your site, a list of any
 					URLs from which you intend to link to our Website, and a
@@ -209,7 +209,7 @@ const TermsAndConditions = () => {
 					</li>
 				</ul>
 				<p>
-					No use of Sommer Credit Union&#39;s logo or other artwork
+					No use of somerset Credit Union&#39;s logo or other artwork
 					will be allowed for linking absent a trademark license
 					agreement.
 				</p>
