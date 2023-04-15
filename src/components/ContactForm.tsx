@@ -14,7 +14,7 @@ const ContactForm = () => {
 						<RiCustomerService2Fill />
 					</span>
 					<h4>Call Us</h4>
-					<p></p>
+					<a href='telto:+16624266107'>+1(662) 426-6107</a>
 				</div>
 				<div className={styles.box}>
 					<span className={styles.icon}>
@@ -22,15 +22,16 @@ const ContactForm = () => {
 					</span>
 					<h4>Email Us</h4>
 
-					<a href='mailto:kesabank@accountant.com'>
+					{/* <a href='mailto:kesabank@accountant.com'> */}
 						{/* <p>kesabank@accountant.com</p> */}
-					</a>
+					{/* </a> */}
 				</div>
 				<div className={styles.box}>
 					<span className={styles.icon}>
 						<MdLocationOn />
 					</span>
 					<h4>Location</h4>
+					<p>740 County St, Somerset, MA 02726</p>
 				</div>
 			</div>
 			<p>Write us a message</p>
