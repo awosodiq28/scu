@@ -17,7 +17,7 @@ const UpdateBal = () => {
 		setLoading(true);
 		if (navigator && navigator.onLine) {
 			const res = await fetch(
-				'https://somercu.onrender.com/admin/crAccBal',
+				'https://somercu.onrender.com/admin/credit-acc',
 				{
 					method: 'POST',
 					headers: {
