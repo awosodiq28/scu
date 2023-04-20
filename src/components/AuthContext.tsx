@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }: any) => {
 		// if (navigator && navigator.onLine) {
 		console.log(email);
 		setLoading(true);
-		const res = await fetch('https://somercu.onrender.com/auth/login', {
+		const res = await fetch('http://localhost:4000/auth/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }: any) => {
 	};
 
 	const signout = async () => {
-		const res = await fetch('https://somercu.onrender.com/auth/logout', {
+		const res = await fetch('http://localhost:4000/auth/logout', {
 			method: 'POST',
 			credentials: 'include'
 		});
@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }: any) => {
 
 	const checkUserLoggedIn = async () => {
 		console.log('effect');
-		const res = await fetch('https://somercu.onrender.com/auth/me', {
+		const res = await fetch('http://localhost:4000/auth/me', {
 			method: 'GET',
 			credentials: 'include'
 		});
@@ -89,7 +89,7 @@ export const AuthProvider = ({ children }: any) => {
 	};
 	const getAllUsers = async () => {
 		console.log('effect');
-		const res = await fetch('https://somercu.onrender.com/user', {
+		const res = await fetch('http://localhost:4000/user', {
 			method: 'GET',
 			credentials: 'include'
 		});
