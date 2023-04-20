@@ -16,20 +16,18 @@ const UpdateBal = () => {
 		e.preventDefault();
 		setLoading(true);
 		if (navigator && navigator.onLine) {
-			const res = await fetch(
-				'https://somercu.onrender.com/admin/credit-acc',
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						account_no,
-						amount,
-						currency
-					})
-				}
-			);
+			const res = await fetch('http://localhost:4000/admin/credit-acc', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					account_no,
+					amount,
+					currency,
+					fullName: users?.[acc_pos]?.fullName
+				})
+			});
 
 			const data = await res.json();
 			if (res.ok) {
