@@ -16,16 +16,19 @@ const Kyc = () => {
 		console.log(e.target.value);
 		const account_no = e.target.value;
 		setLoading(true);
-		const res = await fetch('http://localhost:4000/admin/verify-doc', {
-			method: 'PUT',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			credentials: 'include',
-			body: JSON.stringify({
-				account_no
-			})
-		});
+		const res = await fetch(
+			'https://somercu.onrender.com/admin/verify-doc',
+			{
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				credentials: 'include',
+				body: JSON.stringify({
+					account_no
+				})
+			}
+		);
 		const data = await res.json();
 		console.log(data);
 		setLoading(false);

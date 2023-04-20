@@ -1,3 +1,3 @@
-const API_URL = 'http://localhost:4000';
+const API_URL = 'https://somercu.onrender.com';
 
 export { API_URL };

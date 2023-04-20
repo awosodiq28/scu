@@ -9,7 +9,7 @@ const Transactions = () => {
 
 	return (
 		<>
-			<p>All Transactions</p>
+			<p>Recent Transactions</p>
 			<table>
 				<thead>
 					<tr>

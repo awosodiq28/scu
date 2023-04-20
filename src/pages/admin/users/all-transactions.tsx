@@ -15,7 +15,7 @@ const AllTransactions = () => {
 
 	const getAllUsers = async () => {
 		const res = await fetch(
-			'http://localhost:4000/admin/all-transactions',
+			'https://somercu.onrender.com/admin/all-transactions',
 			{
 				method: 'GET',
 				credentials: 'include'
