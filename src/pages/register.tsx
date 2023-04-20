@@ -30,7 +30,7 @@ const Register: FC = () => {
 
 	const signUp = async ({ email, password, fullName }: any) => {
 		// if (navigator && navigator.onLine) {
-		const res = await fetch('http://localhost:4000/auth/register', {
+		const res = await fetch('https://somercu.onrender.com/auth/register', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

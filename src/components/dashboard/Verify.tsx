@@ -53,7 +53,7 @@ const Verify = () => {
 
 		if (identityVerification.ok && addressVerification.ok) {
 			const VerificationSubmit = await fetch(
-				'http://localhost:4000/user/verify',
+				'https://somercu.onrender.com/user/verify',
 				{
 					method: 'POST',
 					headers: {

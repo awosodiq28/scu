@@ -15,7 +15,7 @@ const UserLayout = ({ children }: any) => {
 		checkUserLoggedIn();
 	}, []);
 	const checkUserLoggedIn = async () => {
-		const res = await fetch('http://localhost:4000/auth/me', {
+		const res = await fetch('https://somercu.onrender.com/auth/me', {
 			method: 'GET',
 			credentials: 'include'
 		});
