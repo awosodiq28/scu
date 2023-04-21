@@ -48,7 +48,6 @@ const AllTransactions = () => {
 								<th>Method</th>
 								<th>Amount</th>
 								<th>Status</th>
-								<th>Action</th>
 							</tr>
 						</thead>
 						{transactions ? (
@@ -57,11 +56,13 @@ const AllTransactions = () => {
 									(transaction: any, i: any) => (
 										<tr key={i}>
 											<td>{i + 1}</td>
-											{transaction.created_at.substring(
-												0,
-												10
-											)}
-
+											<td>
+												{' '}
+												{transaction.created_at.substring(
+													0,
+													10
+												)}
+											</td>
 											<td>{transaction.to}</td>
 											<td>
 												{+transaction.userAccount_no +
@@ -73,7 +74,6 @@ const AllTransactions = () => {
 											<td>Manual</td>
 											<td>{transaction.amount}</td>
 											<td>{transaction.condition}</td>
-											<td>cation</td>
 										</tr>
 									)
 								)}
