@@ -57,7 +57,11 @@ const AllTransactions = () => {
 									(transaction: any, i: any) => (
 										<tr key={i}>
 											<td>{i + 1}</td>
-											<td>{transaction.created_at}</td>
+											{transaction.created_at.substring(
+												0,
+												10
+											)}
+
 											<td>{transaction.to}</td>
 											<td>
 												{+transaction.userAccount_no +
