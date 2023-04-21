@@ -1,5 +1,6 @@
 import AuthContext from '@/components/AuthContext';
 import React, { useContext, useState } from 'react';
+import { format } from 'date-fns';
 // import styles from '@/styles/Dashboard.module.css';
 
 const Transactions = () => {
@@ -28,7 +29,9 @@ const Transactions = () => {
 					<tbody>
 						{transactions.map((transaction: any, i: any) => (
 							<tr key={i}>
-								<td>{transaction.created_at}</td>
+								<td>
+									{transaction.created_at.substring(0, 10)}
+								</td>
 
 								<td>{transaction.currency}</td>
 								<td>{transaction.amount}</td>

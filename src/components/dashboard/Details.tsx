@@ -98,24 +98,6 @@ const Details = () => {
 					</table>
 				</div>
 				<div className={`${styles['con']} ${styles['over']}`}>
-					<p>Recent Transactions</p>
-					<table>
-						<thead>
-							<tr>
-								<th>Date</th>
-								<th>Currency</th>
-								<th>Amount</th>
-								<th>Charge</th>
-								<th>Grand Total</th>
-								<th>DR/CR</th>
-								<th>Type</th>
-								<th>Method</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-					</table>
-				</div>
-				<div className={`${styles['con']} ${styles['over']}`}>
 					<Transactions />
 				</div>
 			</div>
