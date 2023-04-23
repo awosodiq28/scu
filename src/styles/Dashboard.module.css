@@ -89,11 +89,68 @@
 	display: block;
 	margin-bottom: 15px;
 }
+.btn_modal {
+	width: 100%;
+	padding: 15px;
+	color: var(--color-grey);
+	position: relative;
+	top: 37px;
+	background: white;
+	border: none;
+	border-radius: 5px;
+	max-width: 200px;
+	margin: auto;
+	display: block;
+	margin-bottom: 15px;
+}
 
 .details table {
 	border-collapse: collapse;
 	width: 100%;
 	overflow: scroll;
+}
+
+.modal_pin {
+	position: relative;
+	transform: translate(-50%, -157%);
+	background: #e12454;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	padding: 31px;
+	border-radius: 5px;
+	z-index: 2000;
+	box-shadow: var(--shadow);
+}
+
+.cancel {
+	position: absolute;
+	margin: 0;
+	top: -2px;
+	left: 375px;
+	color: white;
+	border: solid;
+	padding: 3px 5px;
+}
+
+.pin_error {
+	position: relative;
+	text-align: center;
+	top: 44px;
+	background: #e72613;
+	border-radius: 5px;
+	border: 1px solid white;
+	color: white;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #80808075;
+	z-index: 200;
 }
 
 .details td,

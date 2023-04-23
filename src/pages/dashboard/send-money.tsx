@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from '@/styles/Dashboard.module.css';
 import AdminLayout from '@/components/admin/AdminLayout';
+import Modal from '@/components/Modal';
 
 const SendMoney = () => {
 	const [account_no, setAccount_no] = useState('');
@@ -8,8 +9,15 @@ const SendMoney = () => {
 	const [note, setNote] = useState('');
 	const [pin, setPin] = useState('');
 	const [error, setError] = useState('');
+	const [openModal, setOpenModal] = useState(false);
 
 	const sendMoney = (e: any) => {
+		e.preventDefault();
+		// setError('The pin you entered is incorrect');
+		setOpenModal(true);
+	};
+
+	const checkPin = (e: any) => {
 		e.preventDefault();
 		setError('The pin you entered is incorrect');
 	};
@@ -18,7 +26,6 @@ const SendMoney = () => {
 		<AdminLayout>
 			<div className={styles.details}>
 				<div className={`${styles.con} ${styles.over}`}>
-					<p style={{ color: 'red' }}>{error && error}</p>
 					<h6 className='tac'>SEND MONEY</h6>
 					<form onSubmit={sendMoney}>
 						<label>
@@ -39,7 +46,7 @@ const SendMoney = () => {
 								onChange={(e) => setAmount(e.target.value)}
 							/>
 						</label>
-						<label>
+						{/* <label>
 							<p>Pin:</p>
 							<input
 								required
@@ -47,7 +54,7 @@ const SendMoney = () => {
 								value={pin}
 								onChange={(e) => setPin(e.target.value)}
 							/>
-						</label>
+						</label> */}
 						<label>
 							<p>Note:</p>
 							<textarea
@@ -58,10 +65,39 @@ const SendMoney = () => {
 								}></textarea>
 						</label>
 						<button type='submit' className={styles.btn}>
-							Submit
+							Send Money
 						</button>
 					</form>
 				</div>
+				<Modal openModal={openModal}>
+					<div className={styles.modal_pin}>
+						<button
+							className={styles.cancel}
+							onClick={() => setOpenModal(false)}>
+							X
+						</button>
+						<h6 className='tac' style={{ color: 'wheat' }}>
+							Enter Your Pin
+						</h6>
+						<form onSubmit={checkPin}>
+							<input
+								required
+								type='password'
+								value={pin}
+								onChange={(e) => {
+									setPin(e.target.value);
+									setError('');
+								}}
+							/>
+							<button type='submit' className={styles.btn_modal}>
+								Submit
+							</button>
+							{error && (
+								<p className={styles.pin_error}>{error}</p>
+							)}
+						</form>
+					</div>
+				</Modal>
 			</div>
 		</AdminLayout>
 	);
