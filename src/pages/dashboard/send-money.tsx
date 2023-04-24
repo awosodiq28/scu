@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from '@/styles/Dashboard.module.css';
-import AdminLayout from '@/components/admin/AdminLayout';
 import Modal from '@/components/Modal';
+import UserLayout from '@/components/dashboard/UserLayout';
 
 const SendMoney = () => {
 	const [account_no, setAccount_no] = useState('');
@@ -23,7 +23,7 @@ const SendMoney = () => {
 	};
 
 	return (
-		<AdminLayout>
+		<UserLayout>
 			<div className={styles.details}>
 				<div className={`${styles.con} ${styles.over}`}>
 					<h6 className='tac'>SEND MONEY</h6>
@@ -99,7 +99,7 @@ const SendMoney = () => {
 					</div>
 				</Modal>
 			</div>
-		</AdminLayout>
+		</UserLayout>
 	);
 };
 export default SendMoney;
