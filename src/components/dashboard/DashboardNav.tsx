@@ -47,13 +47,21 @@ const DashboardNav = () => {
 					<p>Send Money</p>
 				</div>
 			</Link>
-			<Link href={'/dashboard/verify-page'} className='m_0'>
+			<Link
+				href={user?.verified ? '#' : '/dashboard/verify-page'}
+				className='m_0'>
 				<div className={styles.flex}>
 					<FaExchangeAlt />
 					<p>Exchange Money</p>
 				</div>
 			</Link>
-			<Link href={'/dashboard/verify-page'} className='m_0'>
+			<Link
+				href={
+					user?.verified
+						? '/dashboard/send-money'
+						: '/dashboard/verify-page'
+				}
+				className='m_0'>
 				<div className={styles.flex}>
 					<FaMoneyCheckAlt />
 					{/* <RiFileTransferFill /> */}

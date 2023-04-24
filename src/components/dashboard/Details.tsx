@@ -13,7 +13,7 @@ const Details = () => {
 		<>
 			<div className={styles.details}>
 				<div className={styles.conp}>
-					{!user?.verified && (
+					{!user?.verified && user?.verifying == false && (
 						<p className={styles.warning}>
 							Your account is not verified. Please submit all
 							necessary documents.{' '}
