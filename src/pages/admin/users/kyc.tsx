@@ -1,5 +1,5 @@
 import AuthContext from '@/components/AuthContext';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styles from '@/styles/Dashboard.module.css';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { verify } from 'crypto';
@@ -8,6 +8,30 @@ import Link from 'next/link';
 const Kyc = () => {
 	const { users, getAllUsers }: any = useContext(AuthContext);
 	const [loading, setLoading] = useState(false);
+
+	// const [kycList, setKycList] = useState([]);
+	// const [loading, setLoading] = useState(false);
+
+	// useEffect(() => {
+	// 	const getAllKYCs = async () => {
+	// 		console.log('effect');
+	// 		const res = await fetch(
+	// 			'https://somercu.onrender.com/admin/get-kycs',
+	// 			{
+	// 				method: 'GET',
+	// 				credentials: 'include'
+	// 			}
+	// 		);
+	// 		const data = await res.json();
+	// 		console.log('🚀 ~ file: AuthContext.tsx:56 ~ data:', data);
+	// 		if (res.ok) {
+	// 			setKycList(data);
+	// 		} else {
+	// 			setKycList([]);
+	// 		}
+	// 	};
+	// 	getAllKYCs();
+	// }, []);
 
 	const verify = async (
 		// e: React.MouseEvent<HTMLButtonElement, MouseEvent>

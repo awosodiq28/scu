@@ -40,7 +40,7 @@
 .details {
 	background-color: #fafbfe;
 	box-shadow: var(--shadow);
-	overflow-x: auto;
+	overflow-x: hidden;
 	overflow-y: hidden;
 	width: 100%;
 }
@@ -107,6 +107,8 @@
 .details table {
 	border-collapse: collapse;
 	width: 100%;
+	overflow: scroll;
+	display: block;
 	overflow: scroll;
 }
 

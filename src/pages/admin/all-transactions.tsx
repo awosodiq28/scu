@@ -42,7 +42,6 @@ const AllTransactions = () => {
 								<th>Date</th>
 								<th>User</th>
 								<th>AC Number</th>
-								<th>Currency</th>
 								<th>DR/CR</th>
 								<th>Type</th>
 								<th>Method</th>
@@ -68,11 +67,25 @@ const AllTransactions = () => {
 												{+transaction.userAccount_no +
 													1002784563}
 											</td>
-											<td>{transaction.currency}</td>
+
 											<td>{transaction.cr_or_dr}</td>
 											<td>{transaction.type}</td>
 											<td>Manual</td>
-											<td>{transaction.amount}</td>
+											<td>
+												<p
+													style={
+														transaction.cr_or_dr ==
+														'CR'
+															? {
+																	color: '#08e308'
+															  }
+															: { color: 'red' }
+													}>
+													{transaction.currency}
+													{transaction.amount}
+												</p>
+												<td></td>
+											</td>
 											<td>{transaction.condition}</td>
 										</tr>
 									)
