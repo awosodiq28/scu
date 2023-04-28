@@ -2,18 +2,29 @@ import AuthContext from '@/components/AuthContext';
 import AdminLayout from '@/components/admin/AdminLayout';
 import React, { useEffect, useState } from 'react';
 import styles from '@/styles/Dashboard.module.css';
+import Modal from '@/components/Modal';
 
 const AllTransactions = () => {
 	// const { users }: any = useContext(AuthContext);
 	// const transactions = users[0]?.transactions;
-	const [transactions, setTransactions] = useState([]);
-	console.log(transactions);
+	const [transactions, setTransactions] = useState([]) as any;
+	const [id, setId] = useState(0);
+	const [seletedTransaction, setSelectedTransaction] = useState({}) as any;
+	// const [created_at, setCreated_at] = useState('');
+	// const [currency, setCurrency] = useState('');
+	// const [amount, setSelectedTransaction] = useState(0);
+	// const [charge, setCharge] = useState('');
+	// const [method, setMethod] = useState('');
+	const [type, setType] = useState('');
+	const [error, setError] = useState('');
+	const [openModal, setOpenModal] = useState(false);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
-		getAllUsers();
+		getAllTransactions();
 	}, []);
 
-	const getAllUsers = async () => {
+	const getAllTransactions = async () => {
 		const res = await fetch(
 			'https://somercu.onrender.com/admin/all-transactions',
 			{
@@ -30,8 +41,176 @@ const AllTransactions = () => {
 		}
 	};
 
+	const editTransaction = (i: number) => {
+		let trans = transactions[i];
+		setSelectedTransaction({
+			...trans,
+			created_at: trans.created_at?.substring(
+				0,
+				trans.created_at?.lastIndexOf(':')
+			)
+		});
+	};
+
+	// Amount cannot be zero use delete instead
+
+	const updatedTranscationDetailsSubmitHandler = async (
+		e: React.FormEvent<HTMLFormElement>
+	) => {
+		e.preventDefault();
+		setLoading(true);
+		let { id, amount, created_at, charge, currency } = seletedTransaction;
+		const adjustedTime = new Date(created_at);
+		created_at = adjustedTime.toISOString();
+		let difference =
+			type == 'Deposit'
+				? seletedTransaction.amount - +transactions[id - 1].amount
+				: seletedTransaction.amount + -transactions[id - 1].amount;
+		const res = await fetch(
+			'https://somercu.onrender.com/admin/update-transaction',
+			{
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				credentials: 'include',
+				body: JSON.stringify({
+					id,
+					amount,
+					created_at,
+					charge,
+					currency,
+					difference
+				})
+			}
+		);
+		const data = await res.json();
+		console.log(data);
+		if (res.ok) {
+			getAllTransactions();
+			alert(data.message);
+			setOpenModal(false);
+			setLoading(false);
+		} else {
+			alert(data.message);
+			setLoading(false);
+		}
+	};
+
 	return (
 		<AdminLayout>
+			<Modal openModal={openModal}>
+				<div className={styles.editTransactionModal}>
+					<button
+						className={styles.transactionModalCancel}
+						onClick={() => setOpenModal(false)}>
+						X
+					</button>
+					<h6 className='tac' style={{ color: '#e12454' }}>
+						Update Details
+					</h6>
+					<form onSubmit={updatedTranscationDetailsSubmitHandler}>
+						<label>
+							{' '}
+							<p>Amount:</p>
+							<input
+								type='number'
+								placeholder='Amount'
+								value={seletedTransaction.amount}
+								onChange={(e) =>
+									setSelectedTransaction({
+										...seletedTransaction,
+										amount: +e.target.value
+									})
+								}
+							/>
+						</label>
+						<label>
+							Currency:
+							{/* <input
+								type='radio'
+								value='$'
+								name='currency'
+								checked={seletedTransaction.currency === '$'}
+								onClick={(e: any) =>
+									setSelectedTransaction({
+										...seletedTransaction,
+										currency: +e.target.value
+									})
+								}
+							/>{' '}
+							$
+							<input
+								type='radio'
+								value='€'
+								name='currency'
+								checked={seletedTransaction.currency === '€'}
+								onClick={(e: any) =>
+									setSelectedTransaction({
+										...seletedTransaction,
+										currency: +e.target.value
+									})
+								}
+							/>{' '}
+							€ */}
+							<select
+								value={seletedTransaction.currency}
+								onChange={(e: any) =>
+									setSelectedTransaction({
+										...seletedTransaction,
+										currency: e.target.value
+									})
+								}>
+								<option value='$'>$</option>
+								<option value='€'>€</option>
+							</select>
+						</label>
+						<label>
+							<p>Date:</p>
+							<input
+								type='datetime-local'
+								value={seletedTransaction.created_at}
+								onChange={(e) =>
+									setSelectedTransaction({
+										...seletedTransaction,
+										created_at: e.target.value
+									})
+								}
+							/>
+						</label>
+						<label>
+							<p>Charge:</p>
+							<input
+								type='number'
+								value={seletedTransaction.charge}
+								onChange={(e) =>
+									setSelectedTransaction({
+										...seletedTransaction,
+										charge: +e.target.value
+									})
+								}
+							/>
+						</label>
+						{/* <label>
+							<p>Method:</p>
+							<input
+								type='text'
+								value={method}
+								onChange={(e) => setMethod(e.target.value)}
+							/>
+						</label> */}
+
+						<button
+							type='submit'
+							style={{ background: '#e12454' }}
+							className={styles.btn_modal}
+							disabled={loading}>
+							Submit
+						</button>
+						{error && <p className={styles.pin_error}>{error}</p>}
+					</form>
+				</div>
+			</Modal>
 			<div className={styles.details}>
 				<div className={`${styles['con']} ${styles['over']}`}>
 					<p>All Transactions</p>
@@ -47,6 +226,7 @@ const AllTransactions = () => {
 								<th>Method</th>
 								<th>Amount</th>
 								<th>Status</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						{transactions ? (
@@ -84,9 +264,25 @@ const AllTransactions = () => {
 													{transaction.currency}
 													{transaction.amount}
 												</p>
-												<td></td>
 											</td>
 											<td>{transaction.condition}</td>
+											<td>
+												<td>
+													<button
+														onClick={(e) => {
+															setOpenModal(true);
+															console.log([
+																i,
+																transaction.created_at,
+																+transaction.userAccount_no +
+																	1002784563
+															]);
+															editTransaction(i);
+														}}>
+														Edit
+													</button>
+												</td>
+											</td>
 										</tr>
 									)
 								)}

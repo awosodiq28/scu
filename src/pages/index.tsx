@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from '@next/font/google';
-import styles from '@/styles/Home.module.css';
+import styles from '../styles/Dashboard.module.css';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import DepositCard from '@/components/DepositCard';
@@ -10,13 +10,14 @@ import Banner from '@/components/Banner';
 import LoanCard from '@/components/LoanCard';
 import ContactForm from '@/components/ContactForm';
 import AuthContext from '@/components/AuthContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Verify from '@/components/dashboard/Verify';
 
 // const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 	const { user }: any = useContext(AuthContext);
+	const [edit, setEdit] = useState(false);
 
 	return (
 		<>
@@ -36,6 +37,58 @@ export default function Home() {
 				{/* <h1>{user?.email}</h1> */}
 				<Hero />
 				{/* <Verify /> */}
+				<div className={`${styles['con']} ${styles['over']}`}>
+					<p>Up Comming Loan Payment</p>
+					<table>
+						<thead>
+							<tr>
+								<th>Loan ID</th>
+								<th>Next Payment Date</th>
+								<th>Status</th>
+								<th>Amount to Pay</th>
+								<th>Action</th>
+							</tr>
+							<tr>
+								<td colSpan={5}>No Active Loan Available</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>
+									<input
+										type='text'
+										value='Mike'
+										disabled={edit}
+									/>
+								</th>
+								<th>
+									<input type='text' value='Mike' />
+								</th>
+								<th>
+									<input type='text' value='Mike' />
+								</th>
+								<th>
+									<input type='text' value='Mike' />
+								</th>
+								<th>
+									<input
+										type='datetime-local'
+										disabled={edit}
+										onChange={(e) =>
+											console.log(e.target.value)
+										}
+									/>
+								</th>
+
+								<button
+									className='btn'
+									onClick={() => setEdit(!edit)}>
+									EDit
+								</button>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 				<About />
 				<DepositCard />
 				<LoanCard />

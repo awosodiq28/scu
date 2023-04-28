@@ -1,12 +1,12 @@
 import AuthContext from '@/components/AuthContext';
 import React, { useContext, useState } from 'react';
-import { format } from 'date-fns';
-// import styles from '@/styles/Dashboard.module.css';
+// import { format } from 'date-fns';
+import styles from '@/styles/Dashboard.module.css';
+import Modal from '../Modal';
 
 const Transactions = () => {
 	const { user }: any = useContext(AuthContext);
 	const transactions = user?.transactions;
-	console.log(transactions);
 
 	return (
 		<>
