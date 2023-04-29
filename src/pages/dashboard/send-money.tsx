@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from '@/styles/Dashboard.module.css';
 import Modal from '@/components/Modal';
 import UserLayout from '@/components/dashboard/UserLayout';
+import { bankList } from '@/helpers/banksList';
 
 const SendMoney = () => {
 	const [account_no, setAccount_no] = useState('');
@@ -10,6 +11,7 @@ const SendMoney = () => {
 	const [pin, setPin] = useState('');
 	const [error, setError] = useState('');
 	const [openModal, setOpenModal] = useState(false);
+	const [selectedBank, setSelectedBank] = useState('First Bank');
 
 	const sendMoney = (e: any) => {
 		e.preventDefault();
@@ -36,6 +38,20 @@ const SendMoney = () => {
 								value={account_no}
 								onChange={(e) => setAccount_no(e.target.value)}
 							/>
+						</label>
+						<label>
+							<p>Select Bank:</p>
+							<select
+								value={selectedBank}
+								onChange={(e) =>
+									setSelectedBank(e.target.value)
+								}>
+								{bankList.map((bankName, index) => (
+									<option key={index} value={bankName}>
+										{bankName}
+									</option>
+								))}
+							</select>
 						</label>
 						<label>
 							<p>Amount:</p>

@@ -1,7 +1,7 @@
-import AuthContext from "@/components/AuthContext";
-import React, { useContext } from "react";
-import styles from "@/styles/Dashboard.module.css";
-import AdminLayout from "@/components/admin/AdminLayout";
+import AuthContext from '@/components/AuthContext';
+import React, { useContext } from 'react';
+import styles from '@/styles/Dashboard.module.css';
+import AdminLayout from '@/components/admin/AdminLayout';
 
 const Users = () => {
 	const { users }: any = useContext(AuthContext);
@@ -9,7 +9,7 @@ const Users = () => {
 	return (
 		<AdminLayout>
 			<div className={styles.details}>
-				<div className={`${styles["con"]} ${styles["over"]}`}>
+				<div className={`${styles['con']} ${styles['over']}`}>
 					<p>All Users</p>
 					<table>
 						<thead>
@@ -19,6 +19,7 @@ const Users = () => {
 								<th>Name</th>
 								<th>Email</th>
 								<th>Phone</th>
+								<th>Registered Date</th>
 								<th>Status</th>
 							</tr>
 						</thead>
@@ -31,16 +32,17 @@ const Users = () => {
 										<td>{user.fullName}</td>
 										<td>{user.email}</td>
 										<td>{user.phoneNumber}</td>
+										<td>{user.created_at}</td>
 										<td>
 											{user.verified
-												? "Verified"
-												: "Unverified"}
+												? 'Verified'
+												: 'Unverified'}
 										</td>
 									</tr>
 								))}
 							</tbody>
 						) : (
-							""
+							''
 						)}
 					</table>
 				</div>

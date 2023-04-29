@@ -125,6 +125,24 @@
 	box-shadow: var(--shadow);
 }
 
+.editTransactionModal {
+	position: fixed;
+	transform: translate(-50%, -50%);
+	background: white;
+	left: 50%;
+	top: 50%;
+	width: 90vw;
+	padding: 1px 20px 68px;
+	border-radius: 5px;
+	z-index: 2000;
+	box-shadow: var(--shadow);
+}
+
+.editTransactionModal form * {
+	font-size: 21px;
+	color: black;
+}
+
 .cancel {
 	position: absolute;
 	margin: 0;
@@ -133,6 +151,17 @@
 	color: white;
 	border: solid;
 	padding: 3px 5px;
+}
+
+.transactionModalCancel {
+	position: absolute;
+	margin: 0;
+	top: 0%;
+	left: 98%;
+	border: solid;
+	padding: 3px 5px;
+	border-radius: 5px;
+	color: var(--color-grey);
 }
 
 .pin_error {
