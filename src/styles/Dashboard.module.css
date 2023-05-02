@@ -128,19 +128,19 @@
 .editTransactionModal {
 	position: fixed;
 	transform: translate(-50%, -50%);
-	background: white;
+	background: #fff;
 	left: 50%;
-	top: 50%;
-	width: 90vw;
+	top: 48%;
+	width: 75vw;
 	padding: 1px 20px 68px;
 	border-radius: 5px;
 	z-index: 2000;
-	box-shadow: var(--shadow);
 }
 
 .editTransactionModal form * {
 	font-size: 21px;
-	color: black;
+	color: #000;
+	margin-bottom: 0;
 }
 
 .cancel {

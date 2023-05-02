@@ -34,61 +34,7 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main>
-				{/* <h1>{user?.email}</h1> */}
 				<Hero />
-				{/* <Verify /> */}
-				<div className={`${styles['con']} ${styles['over']}`}>
-					<p>Up Comming Loan Payment</p>
-					<table>
-						<thead>
-							<tr>
-								<th>Loan ID</th>
-								<th>Next Payment Date</th>
-								<th>Status</th>
-								<th>Amount to Pay</th>
-								<th>Action</th>
-							</tr>
-							<tr>
-								<td colSpan={5}>No Active Loan Available</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th>
-									<input
-										type='text'
-										value='Mike'
-										disabled={edit}
-									/>
-								</th>
-								<th>
-									<input type='text' value='Mike' />
-								</th>
-								<th>
-									<input type='text' value='Mike' />
-								</th>
-								<th>
-									<input type='text' value='Mike' />
-								</th>
-								<th>
-									<input
-										type='datetime-local'
-										disabled={edit}
-										onChange={(e) =>
-											console.log(e.target.value)
-										}
-									/>
-								</th>
-
-								<button
-									className='btn'
-									onClick={() => setEdit(!edit)}>
-									EDit
-								</button>
-							</tr>
-						</tbody>
-					</table>
-				</div>
 				<About />
 				<DepositCard />
 				<LoanCard />
