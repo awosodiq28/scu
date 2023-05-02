@@ -126,7 +126,7 @@ const AllTransactions = () => {
 							/>
 						</label>
 						<label>
-							Currency:
+							<p>Currency:</p>
 							{/* <input
 								type='radio'
 								value='$'
