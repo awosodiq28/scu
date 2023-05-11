@@ -15,8 +15,8 @@ export const UpdateBalSchema = z.object({
 		.max(10, { message: 'Must be 10 digits' })
 		.min(10, { message: 'Must be 10 digits' }),
 	amount: z.number().positive(),
-	currency: z.string()
-	// redirect: string().optional(),
+	currency: z.string(),
+	date: z.coerce.date()
 });
 
 export const RegisterSchema = z

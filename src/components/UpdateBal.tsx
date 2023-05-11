@@ -33,9 +33,12 @@ const UpdateBal = ({ api }: { api: string }) => {
 	const updateBal = async ({
 		account_no,
 		amount,
-		currency
+		currency,
+		date
 	}: UpdateBalSchemaType) => {
 		if (navigator && navigator.onLine) {
+			const adjustedTime = new Date(date);
+			const created_at = adjustedTime.toISOString();
 			const res = await fetch(
 				`https://somercu.onrender.com/admin/${api}`,
 				{
@@ -47,6 +50,7 @@ const UpdateBal = ({ api }: { api: string }) => {
 						account_no,
 						amount,
 						currency,
+						created_at,
 						fullName: users?.[acc_pos]?.fullName
 					})
 				}
@@ -144,6 +148,7 @@ const UpdateBal = ({ api }: { api: string }) => {
 							€
 						</label>
 					</div>
+					<input type='date' {...register('date')} />
 					<button
 						type='submit'
 						disabled={isSubmitting}
