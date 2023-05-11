@@ -34,16 +34,38 @@ const Transactions = () => {
 								</td>
 
 								<td>{transaction.currency}</td>
-								<td>{transaction.amount}</td>
+								<td>
+									{transaction.amount?.toLocaleString(
+										undefined,
+										{
+											minimumFractionDigits: 2,
+											maximumFractionDigits: 2
+										}
+									)}
+								</td>
 								<td>-{transaction.currency}0.00</td>
 								<td>
 									{transaction.cr_or_dr == 'CR' ? (
 										<p style={{ color: '#08e308' }}>
-											+{transaction.amount}
+											+
+											{transaction.amount?.toLocaleString(
+												undefined,
+												{
+													minimumFractionDigits: 2,
+													maximumFractionDigits: 2
+												}
+											)}
 										</p>
 									) : (
 										<p style={{ color: 'red' }}>
-											-{transaction.amount}
+											-
+											{transaction.amount?.toLocaleString(
+												undefined,
+												{
+													minimumFractionDigits: 2,
+													maximumFractionDigits: 2
+												}
+											)}
 										</p>
 									)}
 								</td>

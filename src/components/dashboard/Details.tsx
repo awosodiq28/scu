@@ -31,7 +31,10 @@ const Details = () => {
 					<p>Account Balance</p>
 					<p>
 						{user?.currency}
-						{user?.account_bal}
+						{user?.account_bal?.toLocaleString(undefined, {
+							minimumFractionDigits: 2,
+							maximumFractionDigits: 2
+						})}
 					</p>
 				</div>
 				<div className={styles.resFlex}>

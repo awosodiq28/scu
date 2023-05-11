@@ -83,7 +83,15 @@ const UpdateBal = () => {
 									<p>Name: {users?.[acc_pos]?.fullName}</p>
 									<p>
 										Current Account Balance:
-										{users?.[acc_pos]?.account_bal}
+										{users?.[
+											acc_pos
+										]?.account_bal?.toLocaleString(
+											undefined,
+											{
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 2
+											}
+										)}
 									</p>
 								</div>
 							) : (
