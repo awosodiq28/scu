@@ -116,7 +116,13 @@ const AllTransactions = () => {
 							<input
 								type='number'
 								placeholder='Amount'
-								value={seletedTransaction.amount}
+								value={seletedTransaction.amount?.toLocaleString(
+									undefined,
+									{
+										minimumFractionDigits: 2,
+										maximumFractionDigits: 2
+									}
+								)}
 								onChange={(e) =>
 									setSelectedTransaction({
 										...seletedTransaction,
@@ -262,7 +268,13 @@ const AllTransactions = () => {
 															: { color: 'red' }
 													}>
 													{transaction.currency}
-													{transaction.amount}
+													{transaction.amount?.toLocaleString(
+														undefined,
+														{
+															minimumFractionDigits: 2,
+															maximumFractionDigits: 2
+														}
+													)}
 												</p>
 											</td>
 											<td>{transaction.condition}</td>
