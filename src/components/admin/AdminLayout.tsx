@@ -3,6 +3,7 @@ import AuthContext from '../AuthContext';
 import AdminDashboardNav from './AdminDashboardNav';
 import styles from '@/styles/Dashboard.module.css';
 import { useRouter } from 'next/router';
+import Spinner from '../Spinner';
 
 const AdminLayout = ({ children }: any) => {
 	const { getAllUsers }: any = useContext(AuthContext);
@@ -51,7 +52,7 @@ const AdminLayout = ({ children }: any) => {
 			</section>
 		);
 	} else {
-		return <p>Loading...</p>;
+		return <Spinner />;
 	}
 };
 

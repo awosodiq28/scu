@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import AuthContext from '@/components/AuthContext';
+import Spinner from '@/components/Spinner';
 
 const Register: FC = () => {
 	const [error, setError] = useState(null) as any;
@@ -62,7 +63,7 @@ const Register: FC = () => {
 		<section className={styles.background}>
 			<div className={styles.form}>
 				{loading ? (
-					<h2>Loading...</h2>
+					<Spinner />
 				) : (
 					<span>
 						{error && <h6 className={styles.error}>{error}</h6>}

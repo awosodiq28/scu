@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import AuthContext from '@/components/AuthContext';
 import DashboardNav from './DashboardNav';
 import styles from '@/styles/Dashboard.module.css';
+import Spinner from '../Spinner';
 
 const UserLayout = ({ children }: any) => {
 	// const { user }: any = useContext(AuthContext);
@@ -47,7 +48,7 @@ const UserLayout = ({ children }: any) => {
 			</section>
 		);
 	} else {
-		return <p>Loading...</p>;
+		return <Spinner />;
 	}
 };
 
