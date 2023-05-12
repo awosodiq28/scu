@@ -10,10 +10,7 @@ export const LoginSchema = z.object({
 });
 
 export const UpdateBalSchema = z.object({
-	account_no: z
-		.number()
-		.max(10, { message: 'Must be 10 digits' })
-		.min(10, { message: 'Must be 10 digits' }),
+	account_no: z.number(),
 	amount: z.number().positive(),
 	currency: z.string(),
 	date: z.coerce.date()

@@ -5,7 +5,7 @@ import React from 'react';
 const debitAcc = () => {
 	return (
 		<AdminLayout>
-			<UpdateBal api='debit-acc' />
+			<UpdateBal api='debit-acc' CROrDR='Debit' />
 		</AdminLayout>
 	);
 };
