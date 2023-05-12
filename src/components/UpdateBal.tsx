@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 
 import { UpdateBalSchema, UpdateBalSchemaType } from '../helpers/schema';
 
-const UpdateBal = ({ api }: { api: string }) => {
+const UpdateBal = ({ api, CROrDR }: { api: string; CROrDR: string }) => {
 	const {
 		register,
 		handleSubmit,
@@ -90,7 +90,7 @@ const UpdateBal = ({ api }: { api: string }) => {
 	return (
 		<div className={styles.details}>
 			<div className={`${styles.con} ${styles.over}`}>
-				<h6 className='tac'>Update Account Balance</h6>
+				<h6 className='tac'>{CROrDR} Account Balance</h6>
 				<form onSubmit={handleSubmit(updateBal)} method='POST'>
 					<input
 						type='number'

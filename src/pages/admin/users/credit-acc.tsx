@@ -5,7 +5,7 @@ import React from 'react';
 const creditAcc = () => {
 	return (
 		<AdminLayout>
-			<UpdateBal api='credit-acc' />
+			<UpdateBal api='credit-acc' CROrDR='Credit' />
 		</AdminLayout>
 	);
 };
