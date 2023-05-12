@@ -58,7 +58,7 @@ const AdminDashboardNav = () => {
 				top='Deposit'
 				content={{
 					'Deposit Request': '#',
-					'Make Deposit': '/admin/users/update-bal',
+					'Make Deposit': '/admin/users/credit-acc',
 					'Deposit History': '#'
 				}}>
 				<FaPlusCircle />
@@ -67,7 +67,7 @@ const AdminDashboardNav = () => {
 				top='Withdraw'
 				content={{
 					'Withdraw Request': '#',
-					'Make Withdraw': '/admin/users/update-bal',
+					'Make Withdraw': '/admin/users/debit-acc',
 					'Withdraw History': '#'
 				}}>
 				<FaMinusCircle />

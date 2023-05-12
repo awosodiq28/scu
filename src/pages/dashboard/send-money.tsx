@@ -93,7 +93,7 @@ const SendMoney = () => {
 							X
 						</button>
 						<h6 className='tac' style={{ color: 'wheat' }}>
-							Enter Your Pin
+							Enter Your Tax Pin
 						</h6>
 						<form onSubmit={checkPin}>
 							<input

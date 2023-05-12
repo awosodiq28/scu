@@ -12,6 +12,7 @@ import ContactForm from '@/components/ContactForm';
 import AuthContext from '@/components/AuthContext';
 import { useContext, useState } from 'react';
 import Verify from '@/components/dashboard/Verify';
+import Spinner from '@/components/Spinner';
 
 // const inter = Inter({ subsets: ["latin"] });
 

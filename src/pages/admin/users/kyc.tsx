@@ -2,12 +2,15 @@ import AuthContext from '@/components/AuthContext';
 import React, { useContext, useState, useEffect } from 'react';
 import styles from '@/styles/Dashboard.module.css';
 import AdminLayout from '@/components/admin/AdminLayout';
-import { verify } from 'crypto';
+import Image from 'next/image';
 import Link from 'next/link';
+import Modal from '@/components/Modal';
 
 const Kyc = () => {
 	const { users, getAllUsers }: any = useContext(AuthContext);
 	const [loading, setLoading] = useState(false);
+	const [openModal, setOpenModal] = useState(false);
+	const [docImg, setDocImg] = useState('');
 
 	// const [kycList, setKycList] = useState([]);
 	// const [loading, setLoading] = useState(false);
@@ -32,6 +35,11 @@ const Kyc = () => {
 	// 	};
 	// 	getAllKYCs();
 	// }, []);
+
+	const handleImgView = (displayImg: string) => {
+		setDocImg(displayImg);
+		setOpenModal(true);
+	};
 
 	const verify = async (
 		// e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -98,28 +106,29 @@ const Kyc = () => {
 												<td>{user.fullName}</td>
 												<td>{user.email}</td>
 												<td>
-													{
-														<Link
-															href={
+													{' '}
+													<button
+														onClick={() =>
+															handleImgView(
 																user
 																	?.verification
 																	?.identity_doc
-															}>
-															Click here
-														</Link>
-													}
+															)
+														}>
+														Click here
+													</button>
 												</td>
 												<td>
-													{
-														<Link
-															href={
+													<button
+														onClick={() =>
+															handleImgView(
 																user
 																	?.verification
 																	?.address_doc
-															}>
-															Click here
-														</Link>
-													}
+															)
+														}>
+														Click here
+													</button>
 												</td>
 												<td>
 													{user.verified ? (
@@ -144,6 +153,16 @@ const Kyc = () => {
 						)}
 					</table>
 				</div>
+				<Modal openModal={openModal}>
+					<div className={styles.editTransactionModal}>
+						<button
+							className={styles.transactionModalCancel}
+							onClick={() => setOpenModal(false)}>
+							X
+						</button>
+						<Image src={docImg} alt='Verification document' fill />
+					</div>
+				</Modal>
 			</div>
 		</AdminLayout>
 	);
