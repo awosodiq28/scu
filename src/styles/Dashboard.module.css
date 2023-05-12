@@ -133,6 +133,7 @@
 	top: 48%;
 	width: 75vw;
 	padding: 1px 20px 68px;
+	height: 88%;
 	border-radius: 5px;
 	z-index: 2000;
 }
@@ -141,6 +142,12 @@
 	font-size: 21px;
 	color: #000;
 	margin-bottom: 0;
+}
+
+.error {
+	color: red;
+	font-size: 12px;
+	height: 30px;
 }
 
 .cancel {
@@ -161,6 +168,7 @@
 	border: solid;
 	padding: 3px 5px;
 	border-radius: 5px;
+	z-index: 10000000;
 	color: var(--color-grey);
 }
 

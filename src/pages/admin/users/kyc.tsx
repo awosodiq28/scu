@@ -160,8 +160,8 @@ const Kyc = () => {
 							onClick={() => setOpenModal(false)}>
 							X
 						</button>
+						<Image src={docImg} alt='Verification document' fill />
 					</div>
-					<Image src={docImg} alt='Verification document' fill />
 				</Modal>
 			</div>
 		</AdminLayout>

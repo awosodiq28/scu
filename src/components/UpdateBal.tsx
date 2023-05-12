@@ -96,7 +96,7 @@ const UpdateBal = ({ api }: { api: string }) => {
 						type='number'
 						placeholder='Account Number'
 						// onChange={(e) => setAccount_no(e.target.value)}
-						{...register('account_no')}
+						{...register('account_no', { valueAsNumber: true })}
 					/>
 					<span className={styles.error}>
 						{' '}
@@ -125,7 +125,7 @@ const UpdateBal = ({ api }: { api: string }) => {
 					<input
 						type='number'
 						placeholder='Amount'
-						{...register('amount')}
+						{...register('amount', { valueAsNumber: true })}
 					/>
 					<span className={styles.error}>
 						{' '}
@@ -148,7 +148,7 @@ const UpdateBal = ({ api }: { api: string }) => {
 							€
 						</label>
 					</div>
-					<input type='date' {...register('date')} />
+					<input type='datetime-local' {...register('date')} />
 					<button
 						type='submit'
 						disabled={isSubmitting}
