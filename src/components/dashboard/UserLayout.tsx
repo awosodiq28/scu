@@ -6,15 +6,25 @@ import styles from '@/styles/Dashboard.module.css';
 import Spinner from '../Spinner';
 
 const UserLayout = ({ children }: any) => {
-	// const { user }: any = useContext(AuthContext);
+	const { user, authChecking }: any = useContext(AuthContext);
+
 	const [loading, setLoading] = useState(true);
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
 
 	useEffect(() => {
 		setOpen(window.matchMedia('(min-width: 1050px)').matches);
-		checkUserLoggedIn();
+		// checkUserLoggedIn();
 	}, []);
+
+	useEffect(() => {
+		if (!authChecking && user?.isAdmin) {
+			setLoading(false);
+		} else if (!authChecking && !user) {
+			router.push('/login');
+		}
+	}, [user, authChecking]);
+
 	const checkUserLoggedIn = async () => {
 		const res = await fetch('https://somercu.onrender.com/auth/me', {
 			method: 'GET',
