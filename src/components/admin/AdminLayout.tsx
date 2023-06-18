@@ -6,16 +6,26 @@ import { useRouter } from 'next/router';
 import Spinner from '../Spinner';
 
 const AdminLayout = ({ children }: any) => {
-	const { getAllUsers }: any = useContext(AuthContext);
+	const { getAllUsers, user, authChecking }: any = useContext(AuthContext);
 	const [loading, setLoading] = useState(true);
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
 
 	useEffect(() => {
 		setOpen(window.matchMedia('(min-width: 1050px)').matches);
-		checkUserLoggedIn();
-		getAllUsers();
+		// checkUserLoggedIn();
+		// getAllUsers();
 	}, []);
+
+	useEffect(() => {
+		if (!authChecking && user?.isAdmin) {
+			setLoading(false);
+			getAllUsers();
+		} else if (!authChecking && !user?.isAdmin) {
+			router.push('/login');
+		}
+	}, [user, authChecking]);
+
 	const checkUserLoggedIn = async () => {
 		const res = await fetch('https://somercu.onrender.com/auth/me', {
 			method: 'GET',

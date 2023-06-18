@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }: any) => {
 	const [users, setUsers] = useState(null);
 	const [error, setError] = useState(null) as any;
 	const [loading, setLoading] = useState(false);
+	const [authChecking, setAuthChecking] = useState(true);
 
 	const router = useRouter();
 
@@ -82,9 +83,11 @@ export const AuthProvider = ({ children }: any) => {
 		if (res.ok) {
 			console.log({ acc_no: data.account_no });
 			setUser(data);
+			setAuthChecking(false);
 		} else {
 			console.log('failed');
 			setUser(null);
+			setAuthChecking(false);
 		}
 	};
 	const getAllUsers = async () => {
@@ -108,6 +111,7 @@ export const AuthProvider = ({ children }: any) => {
 				users,
 				loading,
 				error,
+				authChecking,
 				login,
 				signout,
 				checkUserLoggedIn,

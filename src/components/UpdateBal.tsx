@@ -33,12 +33,12 @@ const UpdateBal = ({ api, CROrDR }: { api: string; CROrDR: string }) => {
 	const updateBal = async ({
 		account_no,
 		amount,
-		currency,
-		date
-	}: UpdateBalSchemaType) => {
+		currency
+	}: // date
+	UpdateBalSchemaType) => {
 		if (navigator && navigator.onLine) {
-			const adjustedTime = new Date(date);
-			const created_at = adjustedTime.toISOString();
+			// const adjustedTime = new Date(date);
+			// const created_at = adjustedTime.toISOString();
 			const res = await fetch(
 				`https://somercu.onrender.com/admin/${api}`,
 				{
@@ -50,7 +50,7 @@ const UpdateBal = ({ api, CROrDR }: { api: string; CROrDR: string }) => {
 						account_no,
 						amount,
 						currency,
-						created_at,
+						// created_at,
 						fullName: users?.[acc_pos]?.fullName
 					})
 				}
@@ -148,7 +148,7 @@ const UpdateBal = ({ api, CROrDR }: { api: string; CROrDR: string }) => {
 							€
 						</label>
 					</div>
-					<input type='datetime-local' {...register('date')} />
+					{/* <input type='datetime-local' {...register('date')} /> */}
 					<button
 						type='submit'
 						disabled={isSubmitting}
