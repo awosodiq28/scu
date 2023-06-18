@@ -18,9 +18,9 @@ const UserLayout = ({ children }: any) => {
 	}, []);
 
 	useEffect(() => {
-		if (!authChecking && user?.isAdmin) {
+		if (!authChecking && user?.email) {
 			setLoading(false);
-		} else if (!authChecking && !user) {
+		} else if (!authChecking && !user?.email) {
 			router.push('/login');
 		}
 	}, [user, authChecking]);

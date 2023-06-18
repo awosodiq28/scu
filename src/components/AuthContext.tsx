@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }: any) => {
 	const [users, setUsers] = useState(null);
 	const [error, setError] = useState(null) as any;
 	const [loading, setLoading] = useState(false);
-	const [authChecking, setAuthChecking] = useState(false);
+	const [authChecking, setAuthChecking] = useState(true);
 
 	const router = useRouter();
 
@@ -73,7 +73,6 @@ export const AuthProvider = ({ children }: any) => {
 	}, []);
 
 	const checkUserLoggedIn = async () => {
-		setAuthChecking(true);
 		console.log('effect');
 		const res = await fetch('https://somercu.onrender.com/auth/me', {
 			method: 'GET',

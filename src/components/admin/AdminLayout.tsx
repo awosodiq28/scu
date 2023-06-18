@@ -21,7 +21,7 @@ const AdminLayout = ({ children }: any) => {
 		if (!authChecking && user?.isAdmin) {
 			setLoading(false);
 			getAllUsers();
-		} else if (!authChecking && !user) {
+		} else if (!authChecking && !user?.isAdmin) {
 			router.push('/login');
 		}
 	}, [user, authChecking]);
