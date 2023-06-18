@@ -1,6 +1,7 @@
-import { Component, useContext } from "react";
-import Login from "@/pages/login";
-import AuthContext from "./AuthContext";
+import { Component, useContext } from 'react';
+import { useRouter } from 'next/router';
+import Login from '@/pages/login';
+import AuthContext from './AuthContext';
 
 const withAuth = (Component: any) => {
 	const Auth = (props: any) => {
